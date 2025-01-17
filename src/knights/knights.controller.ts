@@ -11,17 +11,20 @@ import {
 } from '@nestjs/common';
 import { KnightsService } from './knights.service';
 import { Knight } from './schemas/knight.schema';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Controller('knights')
 export class KnightsController {
   constructor(private readonly knightsService: KnightsService) {}
 
   @Get()
+  @UseInterceptors(CacheInterceptor)
   async getKnights(@Query('filter') filter: string): Promise<any[]> {
     return this.knightsService.findAll(filter);
   }
 
   @Get(':id')
+  @UseInterceptors(CacheInterceptor)
   async getKnight(@Param('id') id: string): Promise<any> {
     return this.knightsService.findOne(id);
   }

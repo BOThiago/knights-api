@@ -5,6 +5,8 @@ import { KnightsController } from './knights/knights.controller';
 import { KnightsModule } from './knights/knights.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CacheModule, CacheStore } from '@nestjs/cache-manager';
+import { RedisOptions } from './config/app-options.constants';
 
 @Module({
   imports: [
@@ -17,14 +19,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         uri: `mongodb://${configService.get('DATABASE_HOST')}:${configService.get('DATABASE_PORT')}`,
         dbName: `${configService.get('DATABASE_NAME')}`,
         autoCreate: true,
-        // Caso necessário autenticação
-        // auth: {
-        //   username: configService.get('DATABASE_USER'),
-        //   password: configService.get('DATABASE_PASS'),
-        // },
+        auth: {
+          username: configService.get('DATABASE_USER'),
+          password: configService.get('DATABASE_PASS'),
+        },
       }),
       inject: [ConfigService],
     }),
+    CacheModule.registerAsync(RedisOptions),
     KnightsModule,
   ],
   controllers: [AppController, KnightsController],
