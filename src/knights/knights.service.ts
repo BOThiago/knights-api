@@ -53,6 +53,11 @@ export class KnightsService {
     return age < 7 ? 0 : Math.floor((age - 7) * Math.pow(22, 1.45));
   }
 
+  /**
+   * Cria um novo cavaleiro
+   * @param knightData Dados do cavaleiro
+   * @returns O cavaleiro criado
+   */
   async createKnight(knightData: Partial<Knight>): Promise<Knight> {
     if (!knightData || Object.keys(knightData).length === 0) {
       throw new BadRequestException('Knight data is required');
@@ -94,6 +99,11 @@ export class KnightsService {
     }
   }
 
+  /**
+   * Encontra todos os cavaleiros com base no filtro
+   * @param filter Filtro para heróis
+   * @returns Lista de cavaleiros
+   */
   async findAll(filter?: string): Promise<any[]> {
     let query = filter === 'heroes' ? { isHero: true } : { isHero: false };
 
@@ -114,6 +124,11 @@ export class KnightsService {
     }
   }
 
+  /**
+   * Encontra um cavaleiro pelo ID
+   * @param id ID do cavaleiro
+   * @returns Detalhes do cavaleiro
+   */
   async findOne(id: string): Promise<any> {
     if (!id) {
       throw new BadRequestException('Knight ID is required');

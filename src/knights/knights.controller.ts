@@ -12,8 +12,10 @@ import {
 import { KnightsService } from './knights.service';
 import { Knight } from './schemas/knight.schema';
 import { CacheInterceptor } from '@nestjs/cache-manager';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('knights')
+@ApiTags('Knights')
 export class KnightsController {
   constructor(private readonly knightsService: KnightsService) {}
 

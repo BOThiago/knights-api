@@ -1,73 +1,81 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Knights API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Bem-vindo ao Knights API! Este projeto é uma API construída com NestJS para gerenciar cavaleiros.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Pré-requisitos
 
-## Description
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Node.js](https://nodejs.org/) (se for rodar sem Docker)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Como Rodar com Docker
 
-## Installation
+1. **Clone o repositório:**
 
-```bash
-$ yarn install
-```
+   ```bash
+   git clone https://github.com/seu-usuario/knights-api.git
+   cd knights-api
+   ```
 
-## Running the app
+2. **Configure as variáveis de ambiente:**
+   Certifique-se de que o arquivo `.env` está configurado corretamente.
 
-```bash
-# development
-$ yarn run start
+3. **Inicie os serviços:**
 
-# watch mode
-$ yarn run start:dev
+   ```bash
+   docker-compose up -d
+   ```
 
-# production mode
-$ yarn run start:prod
-```
+4. **Acesse a API:**
+   A API estará rodando em [http://localhost:3000](http://localhost:3000)
 
-## Test
+5. **Acesse o Swagger:**
+   Vá para [http://localhost:3000/api](http://localhost:3000/api) para visualizar a documentação interativa da API.
 
-```bash
-# unit tests
-$ yarn run test
+## Como Rodar sem Docker
 
-# e2e tests
-$ yarn run test:e2e
+1. **Clone o repositório:**
 
-# test coverage
-$ yarn run test:cov
-```
+   ```bash
+   git clone https://github.com/seu-usuario/knights-api.git
+   cd knights-api
+   ```
 
-## Support
+2. **Instale as dependências:**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+   ```bash
+   npm install
+   ```
 
-## Stay in touch
+3. **Configure as variáveis de ambiente:**
+   Edite o arquivo `.env` com suas configurações.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+4. **Inicie a API:**
 
-## License
+   ```bash
+   npm run build
+   npm start
+   ```
 
-Nest is [MIT licensed](LICENSE).
+5. **Acesse a API:**
+   A API estará rodando em [http://localhost:3000](http://localhost:3000)
+
+6. **Acesse o Swagger:**
+   Vá para [http://localhost:3000/api](http://localhost:3000/api) para visualizar a documentação interativa da API.
+
+## Endpoints Disponíveis
+
+- `GET /knights` - Listar cavaleiros
+- `GET /knights/hall-of-heroes` - Listar heróis
+- `GET /knights/:id` - Obter detalhes de um cavaleiro
+- `POST /knights` - Criar um novo cavaleiro
+- `PATCH /knights/:id` - Atualizar apelido de um cavaleiro
+- `DELETE /knights/:id` - Remover um cavaleiro
+
+## Contribuição
+
+Sinta-se à vontade para contribuir! Abra issues e pull requests conforme necessário.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT.
